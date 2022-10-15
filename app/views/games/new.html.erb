@@ -1,0 +1,17 @@
+<h1>The Longest word</h1>
+<h2>How much of a wordsmith are you?</h2>
+
+<p><% @letters.each do |letter| %>
+    <%= letter %>
+  <% end %>
+</p>
+
+<form action="/score" method="post" data-turbo="false">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <%= hidden_field_tag :letters, @letters %>
+
+  <label for="word">What’s the longest word you can find with the above letters?</label><br>
+  <input type="text" id="word" name="word" placeholder="show me your skills!"><br>
+  <input type="submit" value="play">
+
+</form>
